@@ -1,0 +1,62 @@
+﻿@page
+@model project1.Pages.CreatePatientModel
+@{
+    ViewData["Title"] = "Insert Personal Detail";
+}
+<h1>Insert Personal Detail</h1>
+<span class="text-success">@Model.Message</span>
+<span asp-validation-summary="ModelOnly" class="text-danger"></span>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control w-50" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Phone">Phone</label>
+        <input type="text" class="form-control w-50" asp-for="Phone" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control w-50" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="DoB">Date of Birth</label>
+        <input type="date" class="form-control w-50" asp-for="DoB" />
+        <span asp-validation-for="DoB" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Gender</label><br />
+        <div>
+            <input type="radio" class="form-check-input" asp-for="Gender" value="Male" id="Male" />
+            <label for="Male" class="form-check-label">Male</label>
+        </div>
+        <div>
+            <input type="radio" class="form-check-input" asp-for="Gender" value="Female" id="Female" />
+            <label for="Female" class="form-check-label">Female</label>
+        </div>
+        <div>
+            <input type="radio" class="form-check-input" asp-for="Gender" value="Other" id="Other" />
+            <label for="Other" class="form-check-label">Other</label>
+        </div>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control w-50" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+	<div>
+		<input type="submit" value="Save" class="btn btn-primary" />
+		<a asp-page="/Login">LogIn</a>
+    </div>
+</form>

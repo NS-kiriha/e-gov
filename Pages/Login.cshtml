@@ -1,0 +1,28 @@
+﻿@page
+@model project1.Pages.LoginModel
+@{
+    ViewData["Title"] = "LogIn";
+}
+<h1>LogIn</h1>
+<span class="text-success">@Model.Message</span>
+<span asp-validation-summary="ModelOnly" class="text-danger"></span>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="Credential">Phone or Email</label>
+        <input type="text" class="form-control w-50" asp-for="Credential" />
+        <span asp-validation-for="Credential" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control w-50" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="LogIn" class="btn btn-primary" />
+    </div>
+    <div>
+        <a asp-page="/CreatePatient">Register as Patient</a>
+    </div>
+</form>
