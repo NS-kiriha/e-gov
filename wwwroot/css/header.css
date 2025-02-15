@@ -1,0 +1,21 @@
+﻿.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    height: 65px;
+}
+
+
+.nav-item a{
+    font-size:19px;
+}
+
+.navbar-brand{
+    font-weight:bold;
+    font-size:25px;
+}
+

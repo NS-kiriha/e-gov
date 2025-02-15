@@ -1,22 +1,58 @@
 html {
   font-size: 14px;
+  font-family:Poppins;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/*Header css*/
+
+
+/*footer section */
+.footer{
+    position:static !important;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/*main sections*/
+
+.content {
+    display:flex;
+    flex-direction:column;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.content h1{
+    color:#fff;
+    font-size:4rem;
+    font-weight:bold;
+
 }
 
-body {
-  margin-bottom: 60px;
+
+
+/*Hero Sections*/
+.bg-image {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('../images/2.jpeg');
+    /*    background-attachment:fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.btn{
+    
+    padding:8px 22px;
+    background:black;
+    color:#fff;
+    font-size:18px;
+    text-decoration:none;
+}
+
+/*ticketing section*/
+.ticket-section{
+    max-width:50%;
+}
+
+

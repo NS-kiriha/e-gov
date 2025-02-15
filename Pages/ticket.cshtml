@@ -1,0 +1,78 @@
+﻿@page
+@model project1.Pages.ticketModel
+@{
+}
+
+
+<section class="pt-5 container ticket-section">
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+        <div class="w-100 w-md-50 w-lg-40 p-5 bg-white rounded shadow-lg">
+            <h2 class="h4 font-weight-bold text-center text-dark">
+                Book Your Ticket
+            </h2>
+            <p class="mt-2 text-muted text-center">
+                Please fill in the details below to book your appointment ticket.
+            </p>
+
+            <form method="post" class="mt-4">
+                <div class="form-group mb-3">
+                    <label for="FullName" class="text-muted">Full Name</label>
+                    <input type="text" id="FullName" name="FullName" placeholder="Enter your full name" class="form-control" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Age" class="text-muted">Age</label>
+                    <input type="number" id="Age" name="Age" placeholder="Enter your age" class="form-control" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="text-muted">Gender</label>
+                    <div class="d-flex gap-3 mt-2">
+                        <div class="form-check">
+                            <input type="radio" name="Gender" value="Male" class="form-check-input" id="genderMale" required />
+                            <label class="form-check-label" for="genderMale">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="Gender" value="Female" class="form-check-input" id="genderFemale" required />
+                            <label class="form-check-label" for="genderFemale">Female</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="Gender" value="Other" class="form-check-input" id="genderOther" required />
+                            <label class="form-check-label" for="genderOther">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Contact" class="text-muted">Contact Number</label>
+                    <input type="tel" id="Contact" name="Contact" placeholder="Enter your contact number" class="form-control" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="AppointmentDate" class="text-muted">Appointment Date</label>
+                    <input type="date" id="AppointmentDate" name="AppointmentDate" class="form-control" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Department" class="text-muted">Department</label>
+                    <select id="Department" name="Department" class="form-control" required>
+                        <option value="">Select a department</option>
+                        <option value="General Medicine">General Medicine</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Dermatology">Dermatology</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Generate Ticket
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
