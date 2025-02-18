@@ -1,0 +1,64 @@
+﻿@page
+@model project1.Pages.admin.patientlistModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Patients List";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="text-primary">Patients List</h2>
+
+    <!-- 🔹 Search Box -->
+    <input type="text" id="searchBox" class="form-control mb-3" placeholder="Search patient..." />
+
+    <!-- 🔹 Patients Table -->
+    <table class="table table-bordered table-striped" id="patientTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>Ticket ID</th>
+                <th>Full Name</th>
+                <th>Contact</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Patients != null && Model.Patients.Count > 0)
+            {
+                @foreach (var patient in Model.Patients)
+                {
+                            <tr>
+                                <td>@patient.TicketId</td>
+                                <td>@patient.FullName</td>
+                                <td>@patient.Contact</td>
+                                <td>@patient.Department</td>
+                                <td>
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@patient.TicketId" onsubmit="return confirm('Are you sure?');">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                    <button class="btn btn-primary btn-sm" onclick="alert('Calling @patient.FullName...')">Call</button>
+                                </td>
+                            </tr>
+                }
+            }
+            else
+            {
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">No patients found.</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // 🔹 Search Functionality
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+        let filter = this.value.toUpperCase();
+        let rows = document.querySelectorAll("#patientTable tbody tr");
+        rows.forEach(row => {
+            let text = row.innerText.toUpperCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+</script>

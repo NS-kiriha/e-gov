@@ -4,22 +4,57 @@
     ViewData["Title"] = "Home page";
 }
 
+@{
+    var services = new List<Service>
+    {
+        new Service { Name = "General Medicine", Description = "Comprehensive care for a wide range of medical conditions." },
+        new Service { Name = "Surgery", Description = "Advanced surgical procedures and post-operative care." },
+        new Service { Name = "Pediatric Care", Description = "Specialized healthcare for infants, children, and adolescents." },
+        new Service { Name = "Emergency Services", Description = "24/7 emergency care for critical medical situations." },
+        new Service { Name = "Diagnostic Services", Description = "State-of-the-art diagnostic imaging and laboratory services." },
+        new Service { Name = "Maternity Care", Description = "Comprehensive care for expectant mothers and newborns." }
+    };
+}
 
-<div class="w-100">
-   <div class="">
-       <div class="bg-image">
-            <div class="content text-center container">
-               <h1 class=""> Welcome To The Hospital Ticketing System</h1>
-                <p class="text-white fs-5 opacity-75">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-               <div class="d-flex justify-content-center align-items-center gap-2 mt-3">
-                    <a href="/ticket" class="btn btn-dark">
-                        Get Ticket
-                    </a>
-                    <a href="#" class="btn btn-dark">
-                        Visit Website
-                    </a>
-               </div>
-           </div> 
-       </div>
-   </div>
+<div class="container-fluid">
+    <!-- Hero Section -->
+    <section class="hero-section bg-image bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 font-weight-bold">Welcome to GovHospital</h1>
+            <p class="mt-4 lead">
+                We provide efficient healthcare services to our community. Get your ticket easily online and skip the long queues.
+            </p>
+            <div class="mt-5">
+                <a href="/getTicket" class="btn btn-lg btn-hospital">Get Your Ticket</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-3xl font-weight-bold text-center text-dark mb-4">Our Services</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var service in services)
+                {
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">@service.Name</h5>
+                                <p class="card-text">@service.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
 </div>
+
+@functions {
+    public class Service
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+}

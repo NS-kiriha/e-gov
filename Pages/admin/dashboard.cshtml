@@ -1,0 +1,124 @@
+﻿@page
+@model project1.Pages.admin.dashboardModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Ticketing Dashboard";
+}
+
+<div class="container-fluid mt-4 overflow-hidden"> <!-- Prevents full page scrolling -->
+    <h2 class="text-primary">Hospital Ticketing System</h2>
+
+    <!-- 🔹 Row 1: Total Patients & Queue List -->
+    <div class="row">
+        <!-- Total Patients Box -->
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Patients</h5>
+                    <h2 class="text-success">@Model.Patients.Count</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Queue List with Fixed Height & Scroll -->
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Queue List</h5>
+                    <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                        <!-- Fixed height with scrollbar -->
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Ticket ID</th>
+                                    <th>Full Name</th>
+                                    <th>Contact</th>
+                                    <th>Department</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var patient in Model.QueueList)
+                                {
+                                    <tr>
+                                        <td>@patient.TicketId</td>
+                                        <td>@patient.FullName</td>
+                                        <td>@patient.Contact</td>
+                                        <td>@patient.Department</td>
+                                        <td>
+                                            <!-- Button to Call Patient -->
+                                            <form method="post" asp-page-handler="CallPatient" asp-route-ticketId="@patient.TicketId" onsubmit="return confirm('Are you sure you want to call this patient for service?');">
+                                                <button type="submit" class="btn btn-success btn-sm">Call</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div> <!-- End Scrollable Div -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔹 Row 2: Patient List with Scroll -->
+    <div class="card shadow mt-4">
+        <div class="card-body">
+            <h4 class="card-title">Patient List</h4>
+
+            <input type="text" id="searchBox" class="form-control mb-3" placeholder="Search patient..." />
+
+            <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                <!-- Fixed height with scrollbar -->
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Ticket ID</th>
+                            <th>Full Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Contact</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var patient in Model.Patients)
+                        {
+                            <tr>
+                                <td>@patient.TicketId</td>
+                                <td>@patient.FullName</td>
+                                <td>@patient.Age</td>
+                                <td>@patient.Gender</td>
+                                <td>@patient.Contact</td>
+                                <td>@patient.Department</td>
+                                <td>
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@patient.TicketId" onsubmit="return confirm('Are you sure?');">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                    <button class="btn btn-primary btn-sm" onclick="callPatient('@patient.Contact')">Call</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div> <!-- End Scrollable Div -->
+        </div>
+    </div>
+</div>
+
+<!-- 🔹 JavaScript for Search & Call -->
+<script>
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+        let filter = this.value.toUpperCase();
+        let rows = document.querySelectorAll("#patientTable tbody tr");
+        rows.forEach(row => {
+            let text = row.innerText.toUpperCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+
+    function callPatient(contact) {
+        alert("Calling patient at " + contact);
+    }
+</script>

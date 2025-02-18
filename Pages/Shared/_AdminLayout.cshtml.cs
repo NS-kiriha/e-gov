@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace project1.Pages
+namespace project1.Pages.Shared
 {
-    public class ticketModel : PageModel
+    public class _AdminLayoutModel : PageModel
     {
         public void OnGet()
         {

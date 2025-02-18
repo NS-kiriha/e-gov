@@ -1,0 +1,28 @@
+﻿ @page "{id}"
+@model project1.Pages.TicketDetailsModel
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="border p-4 rounded shadow-lg text-center bg-white" style="max-width: 400px; width: 100%;">
+        <h2 class="mb-3 text-primary">Appointment Ticket</h2>
+
+        <div class="border-bottom pb-3 mb-3">
+            <h4 class="text-dark">Ticket ID: #@Model.TicketId</h4>
+        </div>
+
+        <p><strong>Name:</strong> @Model.FullName</p>
+        <p><strong>Age:</strong> @Model.Age</p>
+        <p><strong>Gender:</strong> @Model.Gender</p>
+        <p><strong>Contact:</strong> @Model.Contact</p>
+        <p><strong>Appointment Date:</strong> @Model.AppointmentDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>Department:</strong> @Model.Department</p>
+
+
+        <hr>
+
+        <button class="btn btn-success" onclick="window.print()">Print Ticket</button>
+        <a href="/" class="btn btn-secondary">Home</a>
+    </div>
+</div>

@@ -1,58 +1,92 @@
 html {
-  font-size: 14px;
-  font-family:Poppins;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
 
-/*Header css*/
-
-
-/*footer section */
-.footer{
-    position:static !important;
-}
-
-/*main sections*/
-
-.content {
-    display:flex;
-    flex-direction:column;
-}
-
-.content h1{
-    color:#fff;
-    font-size:4rem;
-    font-weight:bold;
-
-}
-
-
-
-/*Hero Sections*/
+/* Hero Section Styling */
 .bg-image {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('../images/2.jpeg');
-    /*    background-attachment:fixed;*/
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/2.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-.btn{
-    
-    padding:8px 22px;
-    background:black;
-    color:#fff;
-    font-size:18px;
-    text-decoration:none;
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/*ticketing section*/
-.ticket-section{
-    max-width:50%;
+.hero-section p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
 }
 
+.hero-section .btn-hospital {
+    padding: 12px 30px;
+    background-color: #007bff; /* Hospital-themed color: Blue */
+    color: #fff;
+    font-size: 1.25rem;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
 
+    .hero-section .btn-hospital:hover {
+        background-color: #0056b3; /* Darker blue shade for hover effect */
+        transform: scale(1.05); /* Slight scaling for a more interactive feel */
+    }
+
+.hero-section .btn:focus {
+    outline: none;
+}
+
+/* Services Section */
+.services-section {
+    background-color: #f7f7f7;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+    .services-section h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+    .card:hover {
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* General Footer Styles */
+.footer {
+    position: static !important;
+}

@@ -1,8 +1,8 @@
 ﻿@page
 @model project1.Pages.ticketModel
 @{
+    ViewData["Title"] = "Book Your Ticket";
 }
-
 
 <section class="pt-5 container ticket-section">
     <div class="d-flex justify-content-center align-items-center min-vh-100">
@@ -13,6 +13,13 @@
             <p class="mt-2 text-muted text-center">
                 Please fill in the details below to book your appointment ticket.
             </p>
+
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <div class="alert alert-info">
+                    @Model.Message
+                </div>
+            }
 
             <form method="post" class="mt-4">
                 <div class="form-group mb-3">
@@ -72,7 +79,3 @@
         </div>
     </div>
 </section>
-
-
-
-
